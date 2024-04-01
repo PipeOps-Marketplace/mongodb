@@ -1,9 +1,9 @@
 # Use the MongoDB image as the base image
 FROM mongo:7.0.7
 
-# Set default values for environment variables using ARG
-ARG MONGO_INITDB_ROOT_USERNAME=default
-ARG MONGO_INITDB_ROOT_PASSWORD=default
+# Set environment variables using ARG (without default values)
+ARG MONGO_INITDB_ROOT_USERNAME
+ARG MONGO_INITDB_ROOT_PASSWORD
 ARG MONGO_INITDB_DATABASE
 
 # Set environment variables using ENV
