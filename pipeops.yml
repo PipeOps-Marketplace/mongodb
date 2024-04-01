@@ -1,13 +1,13 @@
 ---
-App: https://github.com/PipeOps-Marketplace/mysql
-Name: Mysql
+App: https://github.com/PipeOps-Marketplace/mongodb
+Name: MongoDB
 CommitSHA: ''
-Description: This addons deploys an instance of MySQL on PipeOps
+Description: This addons deploys an instance of MongoDB on PipeOps
 ReadMe: https://github.com/PipeOps-Marketplace/mysql/blob/main/readme.md
 Category: database
 Kind: Git
 Version: v1.0.0
-ImageURL: https://e7.pngegg.com/pngimages/747/798/png-clipart-mysql-mysql-thumbnail.png
+ImageURL: https://banner2.cleanpng.com/20180702/bgt/kisspng-mongodb-database-nosql-postgresql-mongo-5b39f9e3445fa6.5652746415305261792801.jpg
 Creator: 9trocode
 Branch: main
 Source: github
@@ -20,24 +20,21 @@ Configuration:
     Presets: small
     AutoScale: false
     Storage:
-      name: mysql-data
+      name: mongodb-data
       Size: 2
-      Path: "/var/lib/mysql"
+      Path: "/data/db"
       Persisted: true
     RestartPolicyType: NEVER
   Env:
     PORT:
       Description: ''
       Val: '$PORT'
-    MYSQL_DATABASE:
-      Description: 'Mysql default database'
+    MONGO_INITDB_ROOT_USERNAME:
+      Description: 'These variables, used in conjunction, create a new user and set that user password. This user is created in the admin authentication database and given the role of root, which is a `superuser` role.'
       Val: "default"
-    MYSQL_USER:
-      Description: 'Mysql default user'
-      Val: "user"
-    MYSQL_PASSWORD:
-      Description: 'Mysql password'
+    MONGO_INITDB_ROOT_PASSWORD:
+      Description: 'These variables, used in conjunction, create a new user and set that user password. This user is created in the admin authentication database and given the role of root, which is a `superuser` role.'
+      Val: "default"
+    MONGO_INITDB_DATABASE:
+      Description: 'This variable allows you to specify the name of a database to be used for creation scripts'
       Val: "${{secret(25)}}"
-    MYSQL_ROOT_PASSWORD:
-      Description: 'Mysql root password'
-      Val: '${{secret(32)}}'
