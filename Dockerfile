@@ -12,7 +12,7 @@ ENV PORT=$PORT_ARG \
     MYSQL_PASSWORD=$MYSQL_PASSWORD_ARG \
     MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD_ARG
 
-FROM mysql:8
+FROM mongo:7.0.7
 
 # Create a directory for MySQL configuration
 RUN mkdir -p /etc/mysql/conf.d
