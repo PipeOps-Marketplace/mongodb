@@ -1,11 +1,11 @@
-# MySQL on PipeOps
+# MongoDB on PipeOps
 
-Welcome to the MySQL addon for PipeOps, where you can effortlessly deploy a MySQL instance for your projects.
+Welcome to the MongoDB addon for PipeOps, where you can effortlessly deploy a MongoDB instance for your projects.
 
 [![Deploy on PipeOps](https://railway.app/button.svg)](https://railway.app/template/0ELOuE?referralCode=IQhE0B)
 
 ## Features
-- **MySQL Ready**: Deploy MySQL with just one click.
+- **MongoDB Ready**: Deploy MongoDB with just one click.
 - **Public or Private Access**: Customize your instance's access settings based on your project's needs.
 
 ## How to Use
@@ -13,4 +13,4 @@ Welcome to the MySQL addon for PipeOps, where you can effortlessly deploy a MySQ
 2. Follow the deployment process.
 3. Voila! Your MySQL instance is ready to use.
 
-Experience seamless database deployment with PipeOps and MySQL today!
+Experience seamless database deployment with PipeOps and MongoDB today!
