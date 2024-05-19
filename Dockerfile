@@ -1,5 +1,5 @@
 # Use the MongoDB image as the base image
-FROM mongo:7.0.7
+FROM mongo:latest
 
 # Copy the custom MongoDB configuration file into the image
 COPY mongo.conf /etc/mongo.conf
