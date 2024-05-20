@@ -8,9 +8,8 @@ db.createUser({
   user: username,
   pwd: password,
   roles: [
-    {
-      role: "readWrite",
-      db: database
-    }
+    { role: "readWrite", db: database },
+    { role: "dbAdmin", db: database },
+    { role: "userAdmin", db: database }
   ]
 });
