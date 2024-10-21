@@ -2,8 +2,6 @@
 
 Welcome to the MongoDB addon for PipeOps, where you can effortlessly deploy a MongoDB instance for your projects.
 
-[![Deploy on PipeOps](https://pub-a1fbf367a4cd458487cfa3f29154ac93.r2.dev/Default.png)](#)
-
 ## Features
 - **MongoDB Ready**: Deploy MongoDB with just one click.
 - **Public or Private Access**: Customize your instance's access settings based on your project's needs.
