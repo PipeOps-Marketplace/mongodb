@@ -2,7 +2,7 @@ const username = process.env.MONGO_INITDB_ROOT_USERNAME;
 const password = process.env.MONGO_INITDB_ROOT_PASSWORD;
 const database = process.env.MONGO_INITDB_DATABASE;
 
-db = db.getSiblingDB(database); // Switch to the specified database
+db = db.getSiblingDB("admin"); // Switch to the specified database
 
 db.createUser({
   user: username,
