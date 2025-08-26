@@ -7,9 +7,9 @@ COPY mongo.conf /etc/mongo/mongod.conf
 # Init scripts run only on first start when dbPath is empty
 COPY init-mongo.js /docker-entrypoint-initdb.d/init-mongo.js
 
-# Avoid chown here; volumes will override permissions anyway.
-# Create log dir only (Mongo logs to stdout by default; keep it simple)
-RUN mkdir -p /var/log/mongodb
+# Create necessary directories and set correct permissions
+RUN mkdir -p /data/db /var/log/mongodb && \
+    chown -R mongodb:mongodb /data/db /var/log/mongodb
 
 EXPOSE 27017
 
