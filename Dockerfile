@@ -1,28 +1,17 @@
-# Use the MongoDB image as the base image
+# Use the official MongoDB image
 FROM mongo:8.0
 
-# Copy the custom MongoDB configuration file into the image
-COPY mongo.conf /etc/mongo.conf
+# Copy config to the conventional path
+COPY mongo.conf /etc/mongo/mongod.conf
 
-# Copy the initialization script into the container
+# Init scripts run only on first start when dbPath is empty
 COPY init-mongo.js /docker-entrypoint-initdb.d/init-mongo.js
 
-# Set environment variables using ARG (without default values)
-ARG MONGO_INITDB_ROOT_USERNAME
-ARG MONGO_INITDB_ROOT_PASSWORD
-ARG MONGO_INITDB_DATABASE
+# Avoid chown here; volumes will override permissions anyway.
+# Create log dir only (Mongo logs to stdout by default; keep it simple)
+RUN mkdir -p /var/log/mongodb
 
-# Set environment variables using ENV
-ENV MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-ENV MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
-ENV MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
-
-# Create necessary directories and set correct permissions
-RUN mkdir -p /data/db /var/log/mongodb && \
-    chown -R mongodb:mongodb /data/db /var/log/mongodb
-
-# Expose the default MongoDB port
 EXPOSE 27017
 
-# Start the MongoDB server without the --fork option for debugging
-CMD ["mongod", "--config", "/etc/mongo.conf"]
+# Use the config path we copied to
+CMD ["mongod", "--config", "/etc/mongo/mongod.conf"]
